@@ -26,7 +26,7 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v1
         with:
-          registry: kkfecontainerapps.azurecr.io
+          registry: kkongcontainerapps.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: kkfecontainerapps.azurecr.io/kkong-container-app:${{ github.sha }}
+          tags: kkongcontainerapps.azurecr.io/kkong-container-app:${{ github.sha }}
           file: ./dockerfile
 
 
@@ -56,4 +56,4 @@ jobs:
             echo "Installing containerapp extension"
             az extension add --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl --yes
             echo "Starting Deploying"
-            az containerapp update -n kkong-container-app -g kkong-container-apps -i kkfecontainerapps.azurecr.io/kkong-container-app:${{ github.sha }} --registry-login-server kkfecontainerapps.azurecr.io --registry-username  ${{ secrets.REGISTRY_USERNAME }} --registry-password ${{ secrets.REGISTRY_PASSWORD }} --debug
+            az containerapp update -n kkong-container-app -g kkong-container-apps -i kkongcontainerapps.azurecr.io/kkong-container-app:${{ github.sha }} --registry-login-server kkongcontainerapps.azurecr.io --registry-username  ${{ secrets.REGISTRY_USERNAME }} --registry-password ${{ secrets.REGISTRY_PASSWORD }} --debug

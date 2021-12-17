@@ -35,7 +35,7 @@ jobs:
         with:
           push: true
           tags: kkongcontainerapps.azurecr.io/kkong-container-app:${{ github.sha }}
-          file: ./dockerfile
+          file: ./Dockerfile
 
 
   deploy:

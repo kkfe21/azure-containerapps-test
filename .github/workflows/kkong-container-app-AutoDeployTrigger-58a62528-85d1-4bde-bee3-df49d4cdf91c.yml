@@ -26,7 +26,7 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v1
         with:
-          registry: kkfecontainerapps.azurecr.io
+          registry: kk2acr.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: kkfecontainerapps.azurecr.io/kkong-container-app:${{ github.sha }}
+          tags: kk2acr.azurecr.ioS/kkong-container-app:${{ github.sha }}
           file: ./Dockerfile
 
 
